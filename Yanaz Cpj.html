@@ -1,306 +1,244 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>YANAZ CPJ — Toko Aplikasi Premium</title>
-  <meta name="description" content="Toko digital YANAZ CPJ — jual Alight Motion Mod, CapCut Pro, Netflix, Spotify Premium." />
-  <style>
-    :root{
-      --bg:#050507; /* almost black */
-      --card:#0b0b10;
-      --muted:#9aa0a6;
-      --accent:#7c3aed; /* neon purple */
-      --accent2:#0f4b86; /* deep blue alternative */
-      --glass: rgba(255,255,255,0.03);
-      --radius:14px;
-      --max-w:1100px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;background:linear-gradient(180deg,var(--bg),#07070a);color:#e6eef8;-webkit-font-smoothing:antialiased;line-height:1.45}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max-w);margin:0 auto;padding:24px}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YANAZ CPJ — Toko Aplikasi Premium</title>
+<style>
+  body{
+    margin:0;
+    background:#0a0f19;
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
+  }
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 20px;
+    background:#0d1730;
+  }
+  .logo{
+    font-weight:900;
+    font-size:20px;
+    color:#38b6ff;
+  }
+  nav a{
+    color:#b8c7e0;
+    margin-left:16px;
+    text-decoration:none;
+    font-weight:600;
+  }
+  .hero{
+    background:url('https://i.ibb.co/5vwtrLx/blue-bg.jpg') center/cover no-repeat;
+    padding:70px 20px;
+    text-align:center;
+  }
+  .hero h1{
+    font-size:36px;
+    margin:0;
+    font-weight:900;
+  }
+  .hero p{
+    font-size:16px;
+    margin-top:10px;
+    color:#d3d8ea;
+  }
+  .btn{
+    background:#38b6ff;
+    color:#000;
+    padding:10px 16px;
+    border-radius:8px;
+    display:inline-block;
+    font-weight:700;
+    margin-top:16px;
+    text-decoration:none;
+  }
 
-    /* header */
-    header{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
-    .brand h1{font-size:20px;margin:0}
-    nav{display:flex;gap:12px}
-    nav a{padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:600}
-    nav a.cta{background:linear-gradient(90deg,var(--accent),var(--accent2));color:white}
+  /* PRODUK */
+  .section{
+    padding:24px;
+  }
+  h2{
+    margin-bottom:14px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:14px;
+  }
+  .card{
+    background:#0f1625;
+    padding:10px;
+    border-radius:10px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.05);
+  }
+  .card img{
+    width:100%;
+    border-radius:8px;
+  }
+  .price{
+    font-weight:900;
+    margin:6px 0;
+  }
+  .buy{
+    background:#38b6ff;
+    display:block;
+    padding:8px;
+    border-radius:6px;
+    font-weight:700;
+    margin-top:6px;
+    color:black;
+    text-decoration:none;
+  }
 
-    /* hero */
-    .hero{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center;padding:36px 0}
-    .hero .title{font-size:40px;line-height:1;margin:0}
-    .hero p{color:var(--muted);margin-top:8px}
-    .hero .btns{margin-top:18px;display:flex;gap:12px}
-    .btn{padding:10px 16px;border-radius:12px;font-weight:700;cursor:pointer;border:1px solid rgba(255,255,255,0.05);background:var(--glass)}
-    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:white}
+  /* TESTIMONI */
+  .testi-form{
+    max-width:400px;
+    margin-top:14px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .test-field{
+    padding:8px;
+    border-radius:6px;
+    border:none;
+    background:#0f1625;
+    color:white;
+  }
+  .bubble{
+    background:#0f1625;
+    padding:10px;
+    border-radius:8px;
+    margin-top:10px;
+    border:1px solid rgba(255,255,255,0.05);
+  }
+  .rate{
+    color:#ffcc00;
+    font-weight:900;
+  }
 
-    /* products */
-    .products{padding:18px 0}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px);transition:transform .28s,box-shadow .28s}
-    .card:hover{transform:translateY(-8px);box-shadow:0 12px 30px rgba(0,0,0,0.6)}
-    .card h3{margin:0 0 6px 0;font-size:18px}
-    .price{font-weight:800;margin-top:8px}
-    .desc{color:var(--muted);font-size:13px;margin-top:8px}
-    .card .actions{display:flex;gap:8px;margin-top:12px}
-    .buy{flex:1;padding:8px 10px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;font-weight:700;text-align:center}
-    .chat{flex:1;padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);color:var(--muted);text-align:center}
-
-    /* cara order */
-    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:18px 0}
-    .step{background:var(--card);padding:12px;border-radius:12px;text-align:center}
-    .step h4{margin:8px 0 0 0}
-
-    /* testimonial */
-    .testi{padding:18px 0}
-    .testi .list{display:flex;gap:12px;overflow:hidden}
-    .testi .bubble{min-width:220px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
-
-    footer{padding:18px 0;border-top:1px solid rgba(255,255,255,0.02);color:var(--muted);display:flex;justify-content:space-between;align-items:center}
-
-    /* small screens */
-    @media (max-width:800px){
-      .hero{grid-template-columns:1fr;}
-      nav{display:none}
-      header{gap:12px}
-    }
-
-    /* scroll animation helpers */
-    .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
-    .reveal.visible{opacity:1;transform:none}
-  </style>
+  footer{
+    text-align:center;
+    padding:14px;
+    background:#0d1730;
+    margin-top:30px;
+    color:#b8c7e0;
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">Y</div>
-        <div>
-          <h1>YANAZ CPJ</h1>
-          <div style="font-size:12px;color:var(--muted)">Toko Aplikasi Premium</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#produk">Produk</a>
-        <a href="#cara">Cara Order</a>
-        <a href="#kontak" class="cta">Kontak</a>
-      </nav>
-    </header>
 
-    <main>
-      <section id="home" class="hero reveal">
-        <div>
-          <h2 class="title">YANAZ CPJ</h2>
-          <p>Solusi cepat dan murah untuk akses aplikasi premium. Aman, mudah, dan responsif di HP.</p>
-          <div class="btns">
-            <a class="btn primary" href="#produk">Lihat Produk</a>
-            <a class="btn" href="https://wa.me/+6283167885125" target="_blank">Chat Admin</a>
-          </div>
-        </div>
-        <aside>
-          <div class="card">
-            <h3>Info Layanan</h3>
-            <p class="desc">Pelayanan: 09:00 - 21:00 WIB<br>Metode: Transfer / E-wallet<br>Pengiriman: File via Google Drive / ZIP</p>
-            <div style="margin-top:12px;display:flex;gap:8px">
-              <a class="btn" href="#cara">Cara Order</a>
-              <a class="btn" href="https://wa.me/+6283167885125" target="_blank">Hubungi</a>
-            </div>
-          </div>
-        </aside>
-      </section>
+<header>
+  <div class="logo">YANAZ CPJ</div>
+  <nav>
+    <a href="#produk">Produk</a>
+    <a href="#testimoni">Testimoni</a>
+    <a href="https://wa.me/+6283167885125" target="_blank">Kontak</a>
+  </nav>
+</header>
 
-      <section id="produk" class="products">
-        <h3 class="reveal">Produk</h3>
-        <div class="grid">
-          <!-- product 1 -->
-          <article class="card reveal">
-            <h3>Alight Motion Mod</h3>
-            <div class="desc">Versi Mod + fitur pro unlocked. Lisensi 1 tahun.</div>
-            <div class="price">Rp 7.000 / tahun</div>
-            <div class="actions">
-              <a class="buy" href="https://wa.me/+6283167885125?text=Halo%20Admin,%20saya%20ingin%20membeli%20Alight%20Motion%20Mod" target="_blank">Beli Sekarang</a>
-              <a class="chat" href="https://wa.me/+6283167885125" target="_blank">Chat Admin</a>
-            </div>
-          </article>
+<section class="hero">
+  <h1>Toko Aplikasi Premium</h1>
+  <p>Alight Motion Mod, CapCut Pro, Netflix, Spotify Premium</p>
+  <a class="btn" href="#produk">Lihat Produk</a>
+</section>
 
-          <!-- product 2 -->
-          <article class="card reveal">
-            <h3>CapCut Pro</h3>
-            <div class="desc">CapCut Pro full unlocked. Lisensi lifetime / satu kali bayar.</div>
-            <div class="price">Rp 25.000</div>
-            <div class="actions">
-              <a class="buy" href="https://wa.me/+6283167885125?text=Halo%20Admin,%20saya%20ingin%20membeli%20CapCut%20Pro" target="_blank">Beli Sekarang</a>
-              <a class="chat" href="https://wa.me/+6283167885125" target="_blank">Chat Admin</a>
-            </div>
-          </article>
+<section class="section" id="produk">
+  <h2>Produk Populer</h2>
+  <div class="grid">
+    
+    <div class="card">
+      <img src="https://i.ibb.co/mFgnbGL/alight.jpg">
+      <div>Alight Motion Mod</div>
+      <div class="price">Rp 7.000 / tahun</div>
+      <a class="buy" target="_blank" href="https://wa.me/+6283167885125?text=Halo%20Admin,%20saya%20ingin%20membeli%20Alight%20Motion%20Mod">Beli</a>
+    </div>
 
-          <!-- product 3 -->
-          <article class="card reveal">
-            <h3>Netflix</h3>
-            <div class="desc">Akses akun/akun bersama. Perpanjangan bulanan mudah.</div>
-            <div class="price">Rp 23.000 / bulan</div>
-            <div class="actions">
-              <a class="buy" href="https://wa.me/+6283167885125?text=Halo%20Admin,%20saya%20ingin%20membeli%20Netflix" target="_blank">Beli Sekarang</a>
-              <a class="chat" href="https://wa.me/+6283167885125" target="_blank">Chat Admin</a>
-            </div>
-          </article>
+    <div class="card">
+      <img src="https://i.ibb.co/QpCjgKk/capcut.jpg">
+      <div>CapCut Pro</div>
+      <div class="price">Rp 25.000</div>
+      <a class="buy" target="_blank" href="https://wa.me/+6283167885125?text=Halo%20Admin,%20saya%20ingin%20membeli%20CapCut%20Pro">Beli</a>
+    </div>
 
-          <!-- product 4 -->
-          <article class="card reveal">
-            <h3>Spotify Premium</h3>
-            <div class="desc">Spotify Premium per bulan. Bebas iklan & offline.</div>
-            <div class="price">Rp 18.000 / bulan</div>
-            <div class="actions">
-              <a class="buy" href="https://wa.me/+6283167885125?text=Halo%20Admin,%20saya%20ingin%20membeli%20Spotify%20Premium" target="_blank">Beli Sekarang</a>
-              <a class="chat" href="https://wa.me/+6283167885125" target="_blank">Chat Admin</a>
-            </div>
-          </article>
+    <div class="card">
+      <img src="https://i.ibb.co/94hCv90/netflix.jpg">
+      <div>Netflix Premium</div>
+      <div class="price">Rp 23.000 / bulan</div>
+      <a class="buy" target="_blank" href="https://wa.me/+6283167885125?text=Halo%20Admin,%20saya%20ingin%20membeli%20Netflix">Beli</a>
+    </div>
 
-        </div>
-      </section>
+    <div class="card">
+      <img src="https://i.ibb.co/tcZXmhT/spotify.jpg">
+      <div>Spotify Premium</div>
+      <div class="price">Rp 18.000 / bulan</div>
+      <a class="buy" target="_blank" href="https://wa.me/+6283167885125?text=Halo%20Admin,%20saya%20ingin%20membeli%20Spotify">Beli</a>
+    </div>
 
-      <section id="cara" class="reveal">
-        <h3>Cara Order</h3>
-        <div class="steps">
-          <div class="step">
-            <div>1</div>
-            <h4>Pilih Produk</h4>
-            <div class="desc">Klik &quot;Beli Sekarang&quot; atau chat admin.</div>
-          </div>
-          <div class="step">
-            <div>2</div>
-            <h4>Bayar</h4>
-            <div class="desc">Transfer ke rekening / e-wallet. Simpan bukti.</div>
-          </div>
-          <div class="step">
-            <div>3</div>
-            <h4>Konfirmasi</h4>
-            <div class="desc">Kirim bukti via WhatsApp, sebutkan produk.</div>
-          </div>
-          <div class="step">
-            <div>4</div>
-            <h4>Terima File</h4>
-            <div class="desc">File dikirim lewat Google Drive / ZIP / Instruksi aktivasi.</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="testimoni" class="reveal" style="margin-top:32px">
-        <h3>Testimoni Pembeli</h3>
-        <form id="testiForm" style="display:flex;flex-direction:column;gap:8px;max-width:380px">
-          <input id="tName" placeholder="Nama" required style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:#fff" />
-          <select id="tStar" required style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:#fff">
-            <option value="" disabled selected>Beri Rating ⭐</option>
-            <option value="5">⭐ ⭐ ⭐ ⭐ ⭐</option>
-            <option value="4">⭐ ⭐ ⭐ ⭐</option>
-            <option value="3">⭐ ⭐ ⭐</option>
-            <option value="2">⭐ ⭐</option>
-            <option value="1">⭐</option>
-          </select>
-          <textarea id="tText" placeholder="Tulis ulasan kamu..." required style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:#fff;min-height:80px"></textarea>
-          <button type="submit" class="btn primary" style="width:max-content">Kirim</button>
-        </form>
-
-        <div id="tList" style="margin-top:16px;display:flex;flex-direction:column;gap:14px"></div>
-      </section>
-
-      <section id="kontak" class="reveal">
-        <h3>Kontak</h3>
-        <p class="desc">WhatsApp: <a href="https://wa.me/+6283167885125" target="_blank">+62 831-6788-5125</a><br>Instagram: <a href="https://instagram.com/yanazsukatimnas" target="_blank">@yanazsukatimnas</a></p>
-        <p class="desc">Jam pelayanan: 09:00 - 21:00 WIB</p>
-      </section>
-
-      <section id="testimoni-baru" class="reveal" style="margin-top:32px">
-        <h3>Testitar</h3>
-        <form id="commentForm" style="display:flex;flex-direction:column;gap:8px;max-width:380px">
-          <input id="nameInput" placeholder="Nama" required style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:#fff" />
-          <textarea id="textInput" placeholder="Tulis testimoni"..." required style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:#fff;min-height:80px"></textarea>
-          <button type="submit" class="btn primary" style="width:max-content">Kirim</button>
-        </form>
-        <div id="commentList" style="margin-top:16px;display:flex;flex-direction:column;gap:10px"></div>
-      </section>
-
-</main>
-
-    <footer>
-      <div>© <span id="year"></span> YANAZ CPJ. All rights reserved.</div>
-      <div style="text-align:right;color:var(--muted)">Made with ❤️ — Ringan & Cepat</div>
-    </footer>
   </div>
+</section>
 
-  <script>
-    // set year
-    document.getElementById('year').textContent = new Date().getFullYear();
+<section class="section" id="testimoni">
+  <h2>Testimoni Pembeli</h2>
 
-    // reveal on scroll (lightweight)
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting) e.target.classList.add('visible');
-      });
-    },{threshold:0.12});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  <form class="testi-form" id="testiForm">
+    <input class="test-field" id="nama" placeholder="Nama" required>
+    <select class="test-field" id="rating" required>
+      <option value="">Pilih Rating</option>
+      <option value="1">1 ⭐</option>
+      <option value="2">2 ⭐</option>
+      <option value="3">3 ⭐</option>
+      <option value="4">4 ⭐</option>
+      <option value="5">5 ⭐</option>
+    </select>
+    <textarea class="test-field" id="pesan" placeholder="Tulis testimoni..." required></textarea>
+    <button class="btn" type="submit">Kirim</button>
+  </form>
 
-    // simple testimonial auto-scroll
-    const testi = document.getElementById('testiList');
-    let idx=0;
-    setInterval(()=>{
-      idx = (idx+1) % testi.children.length;
-      testi.style.transform = `translateX(-${idx * 236}px)`;
-      testi.style.transition = 'transform .6s ease';
-    },4000);
+  <div id="testiList"></div>
+</section>
 
-    // lightweight: preconnect to wa.me for faster opens
-    const l = document.createElement('link');
-    l.rel='preconnect'; l.href='https://wa.me'; document.head.appendChild(l);
-    // testimoni (localStorage)
-    const tForm = document.getElementById('testiForm');
-    const tList = document.getElementById('tList');
-    const loadTesti = () => {
-      const data = JSON.parse(localStorage.getItem('testi')||'[]');
-      tList.innerHTML = data.map(t=> `
-        <div class=\"bubble\" style=\"display:flex;flex-direction:column;gap:4px\">
-          <div style=\"color:#ffde59;\">${'⭐'.repeat(t.star)}</div>
-          <div style=\"opacity:.9\">"${t.text}"</div>
-          <small style=\"opacity:.5\">— ${t.name}</small>
-        </div>
-      `).join('');
-    };
-    tForm?.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const name = document.getElementById('tName').value.trim();
-      const text = document.getElementById('tText').value.trim();
-      const star = document.getElementById('tStar').value;
-      if(!name||!text||!star) return;
-      const data = JSON.parse(localStorage.getItem('testi')||'[]');
-      data.unshift({name,text,star});
-      localStorage.setItem('testi', JSON.stringify(data));
-      tForm.reset();
-      loadTesti();
-    });
-    loadTesti(); = () => {
-      const data = JSON.parse(localStorage.getItem('comments')||'[]');
-      list.innerHTML = data.map(c=> `<div class="bubble">"${c.text}" — ${c.name}</div>`).join('');
-    };
-    form?.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const name = document.getElementById('nameInput').value.trim();
-      const text = document.getElementById('textInput').value.trim();
-      if(!name||!text) return;
-      const data = JSON.parse(localStorage.getItem('comments')||'[]');
-      data.unshift({name,text});
-      localStorage.setItem('comments', JSON.stringify(data));
-      form.reset();
-      loadComments();
-    });
-    loadComments();
+<footer>
+  © <span id="year"></span> YANAZ CPJ — Aman, Murah, Cepat
+</footer>
 
+<script>
+  document.getElementById("year").innerText = new Date().getFullYear();
+
+  // Testimoni LocalStorage
+  const form = document.getElementById("testiForm");
+  const list = document.getElementById("testiList");
+
+  const loadTesti = () => {
+    const data = JSON.parse(localStorage.getItem("testi") || "[]");
+    list.innerHTML = data.map(t => `
+      <div class="bubble">
+        <div class="rate">${"⭐".repeat(t.rating)}</div>
+        <div>"${t.pesan}"</div>
+        <small>— ${t.nama}</small>
+      </div>
+    `).join("");
+  };
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const nama = document.getElementById("nama").value.trim();
+    const rating = document.getElementById("rating").value;
+    const pesan = document.getElementById("pesan").value.trim();
+    if(!nama || !pesan || !rating) return;
+
+    const data = JSON.parse(localStorage.getItem("testi") || "[]");
+    data.unshift({nama, rating, pesan});
+    localStorage.setItem("testi", JSON.stringify(data));
+    form.reset();
+    loadTesti();
+  });
+
+  loadTesti();
 </script>
+
 </body>
 </html>
