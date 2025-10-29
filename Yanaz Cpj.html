@@ -57,11 +57,25 @@ nav a.cta{background:linear-gradient(90deg,var(--accent),var(--accent2));color:w
 .step h4{margin:8px 0 0 0}
 
 /* testimonial */
-.testi{padding:18px 0}
-.testi .list{display:flex;gap:12px;overflow:hidden}
-.testi .bubble{min-width:220px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+<section id="testimoni" class="reveal" style="margin-top:32px">
+  <h3>Testimoni Pembeli</h3>
 
-footer{padding:18px 0;border-top:1px solid rgba(255,255,255,0.02);color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+  <form id="testiForm" style="display:flex;flex-direction:column;gap:8px;max-width:380px">
+    <input id="tName" placeholder="Nama" required>
+    <select id="tStar" required>
+      <option value="" disabled selected>Rating ⭐</option>
+      <option value="5">⭐ ⭐ ⭐ ⭐ ⭐</option>
+      <option value="4">⭐ ⭐ ⭐ ⭐</option>
+      <option value="3">⭐ ⭐ ⭐</option>
+      <option value="2">⭐ ⭐</option>
+      <option value="1">⭐</option>
+    </select>
+    <textarea id="tText" placeholder="Tulis ulasan kamu..." required></textarea>
+    <button type="submit" class="btn primary">Kirim</button>
+  </form>
+
+  <div id="tList" style="margin-top:16px;display:flex;flex-direction:column;gap:14px"></div>
+</section>
 
 /* small screens */
 @media (max-width:800px){
